@@ -1,0 +1,34 @@
+.section
+	padding: 50px 0
+	&__title
+		font-size: 45px
+		text-align: center
+		font-weight: 300
+		margin-bottom: 40px
+	&_home
+		margin-top: 105px
+		height: 530px
+		background-image: url(../img/home.jpg)
+		background-size: cover
+		background-position-x: 50%
+		background-repeat: no-repeat
+		box-sizing: border-box
+	&_about
+		.section__title
+			.first-letter
+				color: $color-1
+				font-size: 50px
+	&_advantages
+		color: $color-2
+		background-image: url(../img/advantages-bg.jpg)
+		padding-bottom: 0
+		.section__title
+			.first-letter
+				color: $color-1
+				font-size: 50px
+
+
+@media #{$phone}
+	.section
+		&__title
+			font-size: 35px

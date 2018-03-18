@@ -1,0 +1,23 @@
+mixin b-cart()
+	+b.cart(id="cart")
+		.container
+			+b.FORM.form_cart
+				+e.box-product
+					+e.title Товары в корзине
+					+e.table
+						+e.row_head
+							+e.size
+								+e.col-title Габариты / диаметр <br> мм
+							+e.color 
+								+e.col-title Цвет
+							+e.shape 
+								+e.col-title Форма
+							+e.price
+								+e.col-title Цена шт./грн.
+							+e.square 
+								+e.col-title Площадь <br> мм
+							+e.count 
+								+e.col-title Количество <br> шт.
+							+e.sum 
+								+e.col-title Сумма <br> грн.
+						+e.list(id="formCartList")

@@ -1,0 +1,23 @@
+.list-buy
+	width: 100%
+	display: flex
+	justify-content: space-between
+	font-size: 16px
+	text-transform: uppercase
+	margin-bottom: 30px
+	&__item
+		padding: 10px
+		cursor: pointer
+		text-align: center
+		&.active
+			.list-buy__name
+				display: inline-block
+				border-bottom: 2px solid $color-2
+	&__name
+		display: inline-block
+
+@media #{$phone}
+	.list-buy
+		flex-wrap: wrap
+		&__item
+			width: 100%

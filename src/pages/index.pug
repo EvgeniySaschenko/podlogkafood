@@ -1,0 +1,255 @@
+extends ../layout/root
+block title 
+	title Doc title
+block meta_k 
+	meta(name="keywords" content="meta_k .........text")
+block meta_d 
+	meta(name="description" content="meta_d ......text")
+
+block main
+
+	// Home
+	+b.SECTION.section_home(id="home")
+		.container
+			+b.home
+				+e.row_1
+					+e.H1.title 
+						+e.SPAN.title_1 Подложка 
+						+e.SPAN.title_2 для всего хозяйства
+				+e.row_2
+					+e.text_promo <b>"<span class="first-letter">P</span>odlogkafood"</b> - уникальный сайт <br> для покупки пищевой тары
+				+e.row_3
+					+b.A.btn(href="#") 
+						+e.I.icon.glyphicon.glyphicon-shopping-cart
+						+e.SPAN.text Просмотреть и приобрести
+
+	// About
+	+b.SECTION.section_about(id="about")
+		.container
+			+e.H2.title Что такое "<span class="first-letter">P</span>odlogkafood?"
+			+b.about
+				+e.row_1
+					+e.col_img
+						+e.IMG.img_about(src="img/about.jpg" alt="about")
+					+e.col_text
+						+e.P.text <b>"<span class="first-letter">P</span>odlogkafood"</b> является уникальным ресурсом в Украине, предоставляющий возможность купить различные виды подложки для пищевых продуктов
+						+e.H3.title Наша продукция:
+						+e.P.text - имеет <b>различную</b> конфигурацию, размеры и функциональность
+						+e.P.text - изготовлена из <b>высококачественного</b> влагостойкого сырья
+						+e.P.text - предназначена для хранения <b>пищевых и непищевых</b> продуктов
+						+e.P.text - имеет гладкую поверхность, которая <b>хорошо моется</b>
+						+e.P.text - благодаря <b>качественному полимеру</b> стойкая к химикатам
+				+e.row_2
+					+e.P.text_1 <b>Скидка 20%</b> на доставку по всей Украине
+					+e.P.text_2 При использовании перевозчиков НоваПочта или Интайм наша компания предоставит вам скидку на доставку <b>до 20%!</b>
+					+e.box-img-delivery
+						+e.IMG.img_delivery(src="img/dalivery.jpg" alt="delivery")
+
+	// Where use
+	+b.SECTION.section_workability(id="workability")
+		.container
+			+e.H2.title Где испозьзовать нашу подложку?
+			+b.workability
+				+e.row_1
+					+e.P.text_1 Ответ: во всех промышленностях и во всем хозяйстве
+					+e.P.text_2 Помимо повседневного использования наших товаров в химической и строительной отрослях, подложка может быть приминены для хранения продуктов питания <b>как на короткое время, так и долгосрочное, а именно:</b>
+				+e.row_2
+					+b.list-workability
+						+e.item
+							+e.box-img
+								+e.IMG.img(src="img/workability/1.jpg" alt="workability")
+							+e.text ...Пирожных
+						+e.item
+							+e.box-img
+								+e.IMG.img(src="img/workability/2.jpg" alt="workability")
+							+e.text ...Рибы
+						+e.item
+							+e.box-img
+								+e.IMG.img(src="img/workability/3.jpg" alt="workability")
+							+e.text ...Тортов
+						+e.item
+							+e.box-img
+								+e.IMG.img(src="img/workability/4.jpg" alt="workability")
+							+e.text ...Мяса
+
+	// Buy
+	+b.SECTION.section_buy(id="buy")
+		.container
+			+e.H2.title Оформить заказ
+			+b.buy
+				+e.row_1
+					+b.list-buy
+						+e.item.active(data-id-form="formBuyCircleBoxProductLayer1")
+							+e.name Однослойная круглая
+						+e.item(data-id-form="formBuyCircleBoxProductLayer2")
+							+e.name Двухслойная круглая
+						+e.item(data-id-form="formBuySquareBoxProductLayer1")
+							+e.name Однослойная прямоугольная 
+						+e.item(data-id-form="formBuySquareBoxProductLayer2")
+							+e.name Двухслойная прямоугольная
+
+					+b.FORM.form_buy.active(id="formBuyCircleBoxProductLayer1")
+						+e.box-product
+							+e.title Однослойная круглая подложка
+							+e.table
+								+e.row_head
+									+e.size 
+										+e.col-title Диаметр <br> мм
+									+e.color 
+										+e.col-title Выбирите цвет
+									+e.price_1 
+										+e.col-title Цена шт./грн. более <br> 3000 шт.
+									+e.price_2 
+										+e.col-title Цена шт./грн. меньше <br> 3000 шт.
+									+e.square 
+										+e.col-title Площадь <br> мм
+									+e.count 
+										+e.col-title Введите количество <br> шт.
+									+e.sum 
+										+e.col-title Сумма <br> грн.
+								+e.list(id="formBuyCircleListLayer1")
+								
+					+b.FORM.form_buy(id="formBuyCircleBoxProductLayer2")
+						+e.box-product
+							+e.title Двухслойная круглая подложка
+							+e.table
+								+e.row_head
+									+e.size 
+										+e.col-title Диаметрр <br> мм
+									+e.color 
+										+e.col-title Выбирите цвет
+									+e.price_1 
+										+e.col-title Цена шт./грн. более <br> 3000 шт.
+									+e.price_2 
+										+e.col-title Цена шт./грн. меньше <br> 3000 шт.
+									+e.square 
+										+e.col-title Площадь <br> мм
+									+e.count 
+										+e.col-title Введите количество <br> шт.
+									+e.sum 
+										+e.col-title Сумма <br> грн.
+								+e.list(id="formBuyCircleListLayer2")
+
+
+					+b.FORM.form_buy(id="formBuySquareBoxProductLayer1")
+						+e.box-product
+							+e.title Однослойная прямоугольная подложка
+							+e.table
+								+e.row_head
+									+e.size 
+										+e.col-title Размерыр <br> мм
+									+e.color 
+										+e.col-title Выбирите цвет
+									+e.price_1 
+										+e.col-title Цена шт./грн. более <br> 3000 шт.
+									+e.price_2 
+										+e.col-title Цена шт./грн. меньше <br> 3000 шт.
+									+e.square 
+										+e.col-title Площадь <br> мм
+									+e.count 
+										+e.col-title Введите количество <br> шт.
+									+e.sum 
+										+e.col-title Сумма <br> грн.
+								+e.list(id="formBuySquareListLayer1")
+
+					+b.FORM.form_buy(id="formBuySquareBoxProductLayer2")
+						+e.box-product
+							+e.title Двухслойная прямоугольная подложка
+							+e.table
+								+e.row_head
+									+e.size 
+										+e.col-title Размерыр <br> мм
+									+e.color 
+										+e.col-title Выбирите цвет
+									+e.price_1 
+										+e.col-title Цена шт./грн. более <br> 3000 шт.
+									+e.price_2 
+										+e.col-title Цена шт./грн. меньше <br> 3000 шт.
+									+e.square 
+										+e.col-title Площадь <br> мм
+									+e.count 
+										+e.col-title Введите количество <br> шт.
+									+e.sum 
+										+e.col-title Сумма <br> грн.
+								+e.list(id="formBuySquareListLayer2")
+				+e.row_2
+					+b.btn_buy Перейти в корзину
+
+
+	// Features
+	+b.SECTION.section_features(id="features")
+		.container
+			+e.H2.title Особенности нашей продукции
+			+b.features
+				+e.col_1
+					+e.item
+						+e.I.icon.glyphicon.glyphicon-leaf
+						+e.P.text Наши подложки используются для <b>хранения продуктов</b>
+					+e.item
+						+e.I.icon.glyphicon.glyphicon-tint
+						+e.P.text Стойкость к высоким температурам позволяет производить <b>надёжную стерилизацию</b>
+					+e.item
+						+e.I.icon.glyphicon.glyphicon-ok-sign
+						+e.P.text Гладкая поверхность хорошо моется, что делает <b>тару практичной</b>
+				+e.col_2
+					+e.item
+						+e.box-img
+							+e.IMG.img(src="img/features.jpg" alt="features")
+				+e.col_3
+					+e.item
+						+e.I.icon.glyphicon.glyphicon-tree-deciduous
+						+e.P.text Все емкостя имеют различную <b>конфигурацию и размеры</b>
+					+e.item
+						+e.I.icon.glyphicon.glyphicon-refresh
+						+e.P.text Стойкость к высоким температурам позволяет производить <b>надёжную стерилизацию</b>
+
+	// Advantages
+	+b.SECTION.section_advantages(id="advantages")
+		.container
+			+e.H2.title Чем "<span class="first-letter">P</span>odlogkafood?" лучше остальных ресурсов
+			+b.advantages
+				+e.row_1
+					+e.text_1 Мы – активно развивающаяся компания, способная составить лучшее предложение на рынке полимерной тары и упаковки.
+					+e.text_2 <b>Использование высококачественных полимеров при производстве гарантирует екологичность нашей продукции</b>
+				+e.row_2
+					+e.col_text
+						+e.text
+								| Нашими постоянными потребителями являются предприятия Украины в различных сферах промышленности:<br>
+								| - пищевой;<br>
+								| - химической;<br>
+								| - сфере строительных смесей и т.д.<br>
+								| Большой практический опыт и проработанная система производства позволяют нам предоставить <b>подложку различной емкости.</b> В качестве нашей продукции убедились во многих регионах страны. Вы также можете лично убедиться в отличном соотношении цены/качества, заказав упаковку полимерной тары в нашей компании.
+						+e.text
+								| Мы осуществляем <b>доставку подложки по всей Украине.</b> Транспортировка груза осуществляется удобным для вас способом: 
+								| - на нашем специализированном транспорте (по указанному адресу),<br>
+								| - услугами известных перевозчиков Украины (по схеме склад-склад). Хотим обратить Ваше внимание на то, что <b>доставка услугами Новой Почты и Интайм осуществляется со скидкой до 20%!</b><br>
+								| Воспользуйтесь этим приятным и полезным преимуществом.
+						+e.text
+								| Желание клиента для нас закон, поэтому мы предоставляем возможность покупки товара как оптом, так и в розницу. Стоимость товара зависит от количества приобретенных единиц продукции и способа доставки.
+					+e.col(class="_img")
+						+e.IMG.img(src="img/advantages.jpg" alt="advantages")
+
+	// reviews
+	+b.SECTION.section_reviews(id="reviews")
+		.container
+			+e.H2.title Отзывы о нас
+			.reviews.
+				<div id="disqus_thread"></div>
+				<script>
+					/**
+					*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+					*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+					/*
+					var disqus_config = function () {
+					this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+					this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+					};
+					*/
+					(function() { // DON'T EDIT BELOW THIS LINE
+					var d = document, s = d.createElement('script');
+					s.src = 'https://example-hz3lij0ido.disqus.com/embed.js';
+					s.setAttribute('data-timestamp', +new Date());
+					(d.head || d.body).appendChild(s);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

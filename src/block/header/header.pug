@@ -1,0 +1,40 @@
+mixin b-header()
+	+b.HEADER.header
+		.container
+			+e.row
+				+e.col_1
+					+b.logo
+						+e.IMG.img(src="img/logo.png")
+
+				+e.col_2
+					+b.list-contacts_header
+						+e.item
+							+e.I.icon.glyphicon.glyphicon-phone
+							+e.A.link(href="tel:+380991979795") +38 (099) 197-97-95
+						+e.item
+							+e.I.icon.glyphicon.glyphicon-phone
+							+e.A.link(href="tel:+380991979795") +38 (099) 197-97-95
+
+				
+					+e.icon_cart.glyphicon.glyphicon-shopping-cart
+						+e.icon_cart-counter(id="header__icon_cart-counter") 0
+						
+					+b.NAV.nav_header
+						+e.INPUT.input-checkbox(class="_btn-burger" type="checkbox" id="btn-burger_header")
+						+e.LABEL.label_btn-burger(class="fa fa-bars" for="btn-burger_header")
+							+e.SPAN.label-item
+							+e.SPAN.label-item
+							+e.SPAN.label-item
+						+e.UL.list#nav-list_header
+							+e.LI.item
+								+e.A.link(href="#home") Главная
+							+e.LI.item
+								+e.A.link(href="#about") О нас
+							+e.LI.item
+								+e.A.link(href="#buy") Купить
+							+e.LI.item
+								+e.A.link(href="#workability") Где использовать
+							+e.LI.item
+								+e.A.link(href="#features") Особенности продукции
+							+e.LI.item
+								+e.A.link(href="#contacts") Контакты

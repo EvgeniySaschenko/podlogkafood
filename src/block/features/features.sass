@@ -1,0 +1,30 @@
+.features
+	display: flex
+	justify-content: space-between
+	&__col
+		width: 33%
+		display: flex
+		justify-content: center
+		flex-direction: column
+	&__box-img
+		text-align: center
+	&__img
+		width: 80%
+	&__item
+		display: flex
+		align-items: center
+		color: $color-2
+		margin: 15px 0
+		text-align: center
+	&__icon
+		margin-right: 10px
+		font-size: 25px
+
+
+@media #{$phone}
+	.features
+		flex-wrap: wrap
+		&__col
+			width: 100%
+		&__item
+			flex-direction: column

@@ -1,0 +1,35 @@
+mixin b-footer()
+	+b.FOOTER.footer
+		.container
+			+e.row
+				+e.col_contacts
+					+e.text
+						| Адрес офиса:<br>
+						| г. Киев, Украина<br>
+						| Продавец:<br>
+						| Кирилл Петрович Алденко<br>
+
+					+b.list-contacts_footer(id="contacts")
+						+e.item
+							+e.I.icon.glyphicon.glyphicon-phone
+							+e.A.link(href="tel:+380991979795") +38 (099) 197-97-95
+						+e.item
+							+e.I.icon.glyphicon.glyphicon-phone
+							+e.A.link(href="tel:+380991979795") +38 (099) 197-97-95
+						+e.item
+							+e.I.icon.glyphicon.glyphicon-envelope
+							+e.A.link(href="mailto:info@podlogkafood.com") info@podlogkafood.com
+
+					+e.text Скидки на доставку товаров при использовании перевозчиков НоваПочта или Интайм - <b>до 20%.</b>
+					+e.text При больших заказах продукции возможна бесплатная доставка, обсуждать отдельно по телефону с менеджером.
+
+				+e.col_map
+					+e.IFRAME.map(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d325518.687885679!2d30.25250700465607!3d50.40169903676102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1474236260864")
+
+				+e.col_feedback-form
+					+b.FORM.form_feedback-form
+						+e.INPUT.field_name(name="name" placeholder="Имя" required="required")
+						+e.INPUT.field_mail(name="mail" placeholder="E-mail" required="required")
+						+e.INPUT.field_phone(name="phone" placeholder="Телефон" required="required")
+						+e.TEXTAREA.textarea_comment(name="comment" placeholder="Комментарий")
+						+b.BUTTON.btn_feedback-form Отправить
