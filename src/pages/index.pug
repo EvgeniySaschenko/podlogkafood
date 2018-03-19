@@ -43,7 +43,12 @@ block main
 					+e.P.text_1 <b>Скидка 20%</b> на доставку по всей Украине
 					+e.P.text_2 При использовании перевозчиков НоваПочта или Интайм наша компания предоставит вам скидку на доставку <b>до 20%!</b>
 					+e.box-img-delivery
-						+e.IMG.img_delivery(src="img/dalivery.jpg" alt="delivery")
+						+e.box-img
+							+e.IMG.img_delivery(src="img/dalivery-1.jpg" alt="delivery")
+						+e.box-img
+							+e.IMG.img_delivery(src="img/dalivery-2.jpg" alt="delivery")
+						+e.box-img
+							+e.IMG.img_delivery(src="img/dalivery-3.jpg" alt="delivery")
 
 	// Where use
 	+b.SECTION.section_workability(id="workability")
@@ -173,7 +178,7 @@ block main
 										+e.col-title Сумма <br> грн.
 								+e.list(id="formBuySquareListLayer2")
 				+e.row_2
-					+b.btn_buy Перейти в корзину
+					+b.btn_buy.call-modal-cart Перейти в корзину
 
 
 	// Features

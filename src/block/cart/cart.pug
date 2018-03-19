@@ -1,7 +1,10 @@
 mixin b-cart()
 	+b.cart(id="cart")
 		.container
-			+b.FORM.form_cart
+			+e.close
+				+e.text_close Закрыть корзину
+				+e.icon_close.glyphicon.glyphicon-remove
+			+b.FORM.form_cart(id="formCart")
 				+e.box-product
 					+e.title Товары в корзине
 					+e.table
@@ -21,3 +24,14 @@ mixin b-cart()
 							+e.sum 
 								+e.col-title Сумма <br> грн.
 						+e.list(id="formCartList")
+
+
+				+b.notice.notice_error Ошибка
+				+b.notice.notice_success Заказ отправлен в компанию Podlogkafood, копия этого письма прийдёт на указанный E-mail
+				+b.notice.notice_warning Заполните все поля
+				+e.title Для оформления заказа заполните следующие поля
+				+e.INPUT.field_name(name="name" placeholder="*Имя" required="required")
+				+e.INPUT.field_mail(name="mail" type="email" placeholder="*E-mail" required="required")
+				+e.INPUT.field_phone(name="phone" placeholder="*Телефон" required="required")
+				+e.TEXTAREA.textarea_comment(name="comment" placeholder="Комментарий")
+				+b.BUTTON.btn_cart Отправть заказ

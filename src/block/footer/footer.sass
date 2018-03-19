@@ -10,13 +10,14 @@
 	&__col
 		width: 33.33%
 		&_map
+			width: 66.66%
 			display: flex
 			justify-content: center
 	&__text
 		margin-bottom: 15px
 	&__map
 		height: 100%
-
+		width: 100%
 @media #{$tablet}
 	.footer
 		padding-top: 0
@@ -27,14 +28,9 @@
 		&__col
 			width: 50%
 			padding:  0 10px
-			&_map
-				order: -1
-				width: 100%
-				padding: 0
-				margin-bottom: 20px
-				.footer__map
-					width: 100%
-					height: 250px
+		&__map
+			width: 100%
+			min-height: 250px
 
 @media #{$phone}
 	.footer

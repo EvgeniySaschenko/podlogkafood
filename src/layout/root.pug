@@ -5,12 +5,45 @@ html(lang="en")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		link(rel="shortcut icon" href="imag/favicon.ico" type="image/x-icon")
+		link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
 		meta(http-equiv="X-UA-Compatible", content="ie=edge")
 		block meta_k
 		block meta_d
 		block title
+		style.
+			.preloader.noload{
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+				background-color: #fff;
+				color: rgb(192,147,41);
+			}
+			.preloader{
+				display: none;
+			}
+			.preloader__text_1{
+				font-size: 28px;
+			}
+			.preloader__text_2{
+				font-size: 20px;
+			}
 	body
+		+b.preloader
+			+e.text_1 Podlogkafood
+			+e.text_2 Загрузка
+			script.
+				document.querySelector('.preloader').classList.add('noload')
+				document.addEventListener("DOMContentLoaded", function(){
+					document.querySelector('.preloader').classList.remove('noload');
+				});
+
 		.wrapper
 			+b-header()
 

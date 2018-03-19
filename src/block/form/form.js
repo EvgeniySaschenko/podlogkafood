@@ -1,28 +1,27 @@
 (function(){
-	let ajax= (url, callback) =>{
+	let ajax= (url, formData, callback) =>{
 		let cb= callback || function(){};
 		let xhr= new XMLHttpRequest()
 		xhr.open('POST', url, true);
-		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		xhr.send();
+		//xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(formData);
 		xhr.onreadystatechange= ()=>{
 			if(xhr.readyState == 4 && xhr.status == 200){
 				if(xhr.responseText != '')
 					cb( JSON.parse(xhr.responseText) );
 			}else{
-				//console.log('err');	
+
 			}
 		}
 	}
 
-	ajax( '../server/production.php', (data)=>{
-
-
+	// РАЗДЕЛ С ПРОДУКЦИЕЙ
+	ajax( '../server/production.php', '', (data)=>{
 		let templateCircle_1= [],
 				templateCircle_2= [],
 				templateSquare_1= [],
 				templateSquare_2= [];
-		let templateBase= (size, price_layer_1, price_layer_1_3000, square, layer, shape)=> {
+		let templateBase= (size, price_layer_1, price_layer_1_3000, square, layer, shape, shapeIcon)=> {
 			let colorTemplate;
 			if(layer == 1){
 				colorTemplate= `<select class="form__select form__select_color" name="color">
@@ -41,7 +40,7 @@
 			}
 
 			return(
-			`<div class="form__row form__row_product" data-shape="${shape}">
+			`<div class="form__row form__row_product" data-shape="${shape}" data-shape-icon="${shapeIcon}">
 				<div class="form__size" data-size="${size}">
 					${size}
 				</div>
@@ -68,11 +67,11 @@
 		// Вставка шаблона в DOM
 		for(let i= 0; data.length > i; i++){
 			if(data[i].diameter != 0){
-				templateCircle_1.push( templateBase(data[i].diameter, data[i].price_layer_1, data[i].price_layer_1_3000, data[i].square, 1, 'Круглая') );
-				templateCircle_2.push( templateBase(data[i].diameter, data[i].price_layer_2, data[i].price_layer_2_3000, data[i].square, 2, 'Круглая') );
+				templateCircle_1.push( templateBase(data[i].diameter, data[i].price_layer_1, data[i].price_layer_1_3000, data[i].square, 1, 'Круглая', 'glyphicon glyphicon-record') );
+				templateCircle_2.push( templateBase(data[i].diameter, data[i].price_layer_2, data[i].price_layer_2_3000, data[i].square, 2, 'Круглая', 'glyphicon glyphicon-record') );
 			} else{
-				templateSquare_1.push( templateBase(data[i].dimensions, data[i].price_layer_1, data[i].price_layer_1_3000, data[i].square, 1, 'Прямоугольная') );
-				templateSquare_2.push( templateBase(data[i].dimensions, data[i].price_layer_2, data[i].price_layer_2_3000, data[i].square, 2, 'Прямоугольная') );
+				templateSquare_1.push( templateBase(data[i].dimensions, data[i].price_layer_1, data[i].price_layer_1_3000, data[i].square, 1, 'Прямоугольная', 'glyphicon glyphicon-stop') );
+				templateSquare_2.push( templateBase(data[i].dimensions, data[i].price_layer_2, data[i].price_layer_2_3000, data[i].square, 2, 'Прямоугольная', 'glyphicon glyphicon-stop') );
 			}
 		}
 		document.getElementById('formBuyCircleListLayer1').innerHTML= templateCircle_1.join('');
@@ -106,6 +105,39 @@
 		var event = new Event('ajax:production');
 		document.dispatchEvent(event);
 	} );
-	
 
+
+	// РАЗДЕЛ С ПРОДУКЦИЕЙ
+	document.querySelector('#formCart .btn_cart').addEventListener('click', (e)=>{
+		e.preventDefault();
+		let notice= document.querySelectorAll('#formCart .notice');
+
+		for(let i= 0; notice.length > i; i++){
+			notice[i].classList.remove('active');
+		}
+
+		let form= document.getElementById('formCart');
+		let formData = new FormData(form);
+		let formRequired= document.querySelectorAll('#formCart [required="required"]');
+		let valid= true;
+		for(let i= 0; formRequired.length > i; i++){
+
+			if( ( formRequired[i].getAttribute('name') == 'mail' && !formRequired[1].value.match(/\w{1,}@\w{1,}/gi) ) || formRequired[i].value == '' ){
+				valid= false;
+				break;
+			}
+		}
+
+		if(valid){
+			ajax('../server/mail.php?action=send', formData, (data)=>{
+				if(data == 'success'){
+					document.querySelector('#formCart .notice_success').classList.add('active');
+				}else{
+					document.querySelector('#formCart .notice_error').classList.add('active');
+				}
+			});
+		}else{
+			document.querySelector('#formCart .notice_warning').classList.add('active');
+		}
+	})
 }).call();
