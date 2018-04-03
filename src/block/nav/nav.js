@@ -75,4 +75,8 @@ for(let i= 0; itemsNav.length > i; i++){
 	});
 }
 
+document.getElementById('btn_bye').addEventListener('click', (e)=>{
+	smoothScroll('buy');
+})
+
 }).call();

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prod": "set NODE_ENV=production && gulp"
+    "build": "set NODE_ENV=production && gulp"
   },
   "author": "",
   "license": "ISC",

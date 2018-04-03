@@ -16,7 +16,7 @@
 	}
 
 	// РАЗДЕЛ С ПРОДУКЦИЕЙ
-	ajax( '../server/production.php', '', (data)=>{
+	ajax( 'http://podlogkafood.ua-ix.biz/server/production.php', '', (data)=>{
 		let templateCircle_1= [],
 				templateCircle_2= [],
 				templateSquare_1= [],
@@ -129,7 +129,7 @@
 		}
 
 		if(valid){
-			ajax('../server/mail.php?action=send', formData, (data)=>{
+			ajax('http://podlogkafood.ua-ix.biz/server/mail.php?action=send', formData, (data)=>{
 				if(data == 'success'){
 					document.querySelector('#formCart .notice_success').classList.add('active');
 				}else{
